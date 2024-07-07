@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" manifest="app.manifest">
+  <head>
+    <link rel="stylesheet" href="converter.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon" href="icon512.png"/>
+    <link rel="apple-touch-startup-image" href="icon512.png" />
+    <title>Temperature converter</title>
+  </head>
+  <body>
+    <form id="converter">
+        <label for="input-temp">temperature</label>
+        <input type="text" id="input-temp" name="input-temp" value="20" />
+        <label for="input-unit">from</label>
+        <select id="input-unit" name="input-unit">
+          <option value="c" selected>Celsius</option>
+          <option value="f">Fahrenheit</option>
+          <option value="k">Kelvin</option>
+        </select>
+        <label for="output-unit">to</label>
+        <select id="output-unit" name="output-unit">
+          <option value="c">Celsius</option>
+          <option value="f" selected>Fahrenheit</option>
+          <option value="k">Kelvin</option>
+        </select>
+        <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
+      </form>
+      <script src="converter.js"></script>
+  </body>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' });
+    }
+    </script>
+</html>
